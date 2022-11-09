@@ -42,4 +42,21 @@ module.exports = class Author {
         });
     };
 
+    static findOrCreateByName(name){
+        return new Promise (async (resolve, reject) => {
+            try {
+                let author;
+                const authorData = await db.query('SELECT * FROM authors WHERE name = $1;', [ name ]);
+                if(!authorData.rows.length) {
+                    author = await Author.create(name);
+                } else {
+                    author = new Author(authorData.rows[0]);
+                };
+                resolve(author);
+            } catch (err) {
+                reject(err);
+            };
+        });
+    };
+
 };

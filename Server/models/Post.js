@@ -46,17 +46,13 @@ module.exports = class Post {
                 // finds or creates author with data inserted into author
                 let author = await Author.findOrCreateByName(authorName);
                 console.log(author)
-
-                // get todays date
-                // insert into run(id,name,dob) values(&id,'&name',GETDATE());
                 
-                // ??
-                let newPost = await db.query(`INSERT INTO books 
-                VALUES (${title}, ${yearOfPublication}, ${abstract}, ${authorName}) RETURNING *;`);
+                let postData = await db.query(`INSERT INTO books 
+                VALUES ($1, $2, $3, $4)  RETURNING *;`, [title, GETDATE(), descr, authorName] );
 
-                let newBook = new Post(data.rows[0]);
+                let post = new Post(postData.rows[0]);
 
-                resolve(newBook);
+                resolve(post);
             } catch (err) {
                 reject('Post could not be created');
             }
