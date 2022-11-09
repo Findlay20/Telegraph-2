@@ -7,6 +7,8 @@
 - Type `bash _scripts/stop.sh` to stop
 - Type `bash _scripts/teardown.sh` to stop & remove volume
 
+Goto http://localhost:8080 to see website. 
+
 ## Changelog
 - Added basic form and styling to client page
 - get posts and send post functions set up
@@ -20,4 +22,4 @@
 - Submit button doesn't always work - only every 2nd time
 
 ### Server
-- Cannot get date to display when localhost/posts
+- Cannot get date to display when localhost:3000/posts
