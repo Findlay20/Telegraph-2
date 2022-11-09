@@ -47,7 +47,7 @@ module.exports = class Post {
                 let author = await Author.findOrCreateByName(authorName);
                 console.log(author)
                 
-                let postData = await db.query(`INSERT INTO books 
+                let postData = await db.query(`INSERT INTO posts 
                 VALUES ($1, $2, $3, $4)  RETURNING *;`, [title, GETDATE(), descr, authorName] );
 
                 let post = new Post(postData.rows[0]);
