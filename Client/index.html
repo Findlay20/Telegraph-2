@@ -9,13 +9,17 @@
     <script defer src="js/index.js"></script>
 </head>
 <body>
-    <main>
-        <form action="" id="postForm">
-            <input type="text" name="title" id="titleInput" placeholder="Title...">
-            <input type="text" name="author" id="authorInput" placeholder="Your name...">
-            <textarea name="post" id="postInput" cols="140" rows="10"></textarea>
-            <input type="submit" name="submit" id="submitPost">
-        </form>
-    </main>
+    <form action="" id="postForm">
+        <input type="text" name="title" id="titleInput" placeholder="Title...">
+        <input type="text" name="author" id="authorInput" placeholder="Your name...">
+        <textarea name="post" id="postInput" cols="140" rows="10"></textarea>
+        <input type="submit" name="submit" id="submitPost">
+    </form>
+    <section id="postSection" style="display: none;">
+        <button id="closePost">Back</button>
+        <h2><a href="http://localhost:3000/posts/${post.id}"></a>Example title</h2>
+        <h4>An author</h4>
+        <p>A big post about a bunch of stuff asdfkaj;sdflka fas dajskdfh lkjgh oisudfghidufg hsdfkgj hl dfgskjhgd sflkjshgdf lkjsgd fidsgf dgf oifg ofi glkgfdasj;li</p>
+    </section>
 </body>
 </html>
