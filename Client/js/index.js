@@ -42,7 +42,6 @@ async function getPostByID (id) {
 async function displayPost (id) {
     try {
         const post = await getPostByID(id);
-        console.log(post)
         markup = `<div id="post_${post.id}">
                     <h2><a href="#posts/${post.id}">${post.title}</a></h2>
                     <h4>${post.author.name}</h4>
@@ -58,7 +57,6 @@ async function displayPosts () {
     try {
         const allPosts = await getPosts();
         allPosts.forEach(post => {
-            console.log(post)
             markup = `<div id="post_${post.id}">
                         <h2><a href="#posts/${post.id}">${post.title}</a></h2>
                         <h4>${post.author.name}</h4>
