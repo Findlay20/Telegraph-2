@@ -31,10 +31,10 @@ module.exports = class Post {
                                                 FROM posts 
                                                 LEFT JOIN authors ON posts.author_id = authors.id
                                                 WHERE posts.id = $1;`, [ id ] );
-                let post = new Book(data.rows[0]);
+                let post = new Post(data.rows[0]);
                 resolve (post);
             } catch (err) {
-                reject('Post not found');
+                reject(`Post not found: ${err}`);
             }
         });
     };
