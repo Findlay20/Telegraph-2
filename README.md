@@ -18,6 +18,8 @@
 ## Bugs
 ### Client
 - Submit button doesn't always work - only every 2nd time
+- direct links to post only work after visiting page first
+- address bar fills up with inputted information and never clears
 
 ### Server
 - Cannot get date to display when localhost/posts
