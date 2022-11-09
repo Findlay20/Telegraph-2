@@ -1,0 +1,26 @@
+{
+  "description": "Telegraph-2",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seedDev": "node dbConfig/seedDev.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "author": "futureproof",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.3.3"
+  }
+}
