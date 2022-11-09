@@ -24,7 +24,6 @@ async function sendPost (e) {
     }
 }
 
-
 async function getPosts () {
     try {
         const response = await fetch('http://localhost:3000/posts');
@@ -33,6 +32,26 @@ async function getPosts () {
     } catch (err){
         console.warn(err);
     }
+
+
+async function getPostByID (id) {
+    try {
+        const response = await fetch(`http://localhost:3000/posts/${id}`);
+        const post = await response.json();
+        return post;
+    } catch (err) {
+        console.warn(err);
+    }
+}
+
+async function showPost (id) {
+    try {
+        const post = getPostByID(id);
+        
+    } catch(err) {
+
+    }
+}
 
 async function displayPosts () {
     try {
@@ -50,5 +69,3 @@ async function displayPosts () {
     }
 }
 }
-
-displayPosts()
