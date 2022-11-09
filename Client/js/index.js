@@ -16,10 +16,8 @@ async function sendPost (e) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        console.log(options.body)
         const response = await fetch('http://localhost:3000/posts', options);
         const {id, err} = await response.json;
-        console.log(response)
         if (err) {
             throw Error(err)
         } else {
@@ -42,12 +40,13 @@ async function getPostByID (id) {
 
 async function displayPost (id) {
     try {
-        const post = getPostByID(id);
-        form.style.display = 'none';
-        postSection.style.display = 'block'
-        postTitle.textContent = post.title;
-        postAuthor.textContent = post.author;
-        postBody.textContent = post.body;
+        const post = await getPostByID(id);
+        markup = `<div id="post_${post.id}">
+                    <h2><a href="#posts/${post.id}">${post.title}</a></h2>
+                    <h4>${post.author}</h4>
+                    <p>${post.descr}</p>
+                    </div>`
+        main.insertAdjacentHTML('afterbegin', markup);
     } catch(err) {
         console.warn(err);
     }
@@ -56,16 +55,13 @@ async function displayPost (id) {
 async function displayPosts () {
     try {
         const allPosts = await getPosts();
-        console.log(allPosts)
         allPosts.forEach(post => {
-            console.log(post.id)
             markup = `<div id="post_${post.id}">
                         <h2><a href="#posts/${post.id}">${post.title}</a></h2>
                         <h4>${post.author}</h4>
                         <p>${post.descr}</p>
                       </div>`
             main.insertAdjacentHTML('afterbegin', markup);
-            
         })
     } catch (err) {
         console.warn(err)
