@@ -37,5 +37,28 @@ module.exports = class Post {
             }
         });
     };
+
+    static async create(data){
+        return new Promise (async (resolve, reject) => {
+            try {
+                const { authorName, title, yearOfPublication, abstract} = data;
+
+                // finds or creates author with data inserted into author
+                let author = await Author.findOrCreateByName(authorName);
+                console.log(author)
+                
+                // ??
+                let newPost = await db.query(`INSERT INTO books 
+                VALUES (${title}, ${yearOfPublication}, ${abstract}, ${authorName}) RETURNING *;`);
+
+                let newBook = new Post(data.rows[0]);
+
+                resolve(newBook);
+            } catch (err) {
+                reject('Post could not be created');
+            }
+        });
+    };
+
     
 };

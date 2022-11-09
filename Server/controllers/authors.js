@@ -18,4 +18,13 @@ async function show(req, res) {
     };
 }
 
-module.exports = { index, show }
+async function create(req, res) {
+    try {
+        const authors = await Author.create(req.body);
+        res.status(201).json(authors);
+    } catch (err) {
+        res.status(422).send(err);
+    }
+}
+
+module.exports = { index, show, create }

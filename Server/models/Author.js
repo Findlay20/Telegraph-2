@@ -30,4 +30,16 @@ module.exports = class Author {
         });
     };
 
+    static create(name){
+        return new Promise (async (resolve, reject) => {
+            try {
+                let data = await db.query('INSERT INTO authors (pseudonym) VALUES ($1) RETURNING *;', [ name ]);
+                let author = new Author(data.rows[0]);
+                resolve (author);
+            } catch (err) {
+                reject('Author could not be created');
+            };
+        });
+    };
+
 };

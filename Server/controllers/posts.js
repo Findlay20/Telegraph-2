@@ -18,4 +18,13 @@ async function show (req, res) {
     }
 }
 
-module.exports = { index, show }
+async function create (req, res) {
+    try {
+        const post = await Post.create(req.body);
+        res.status(201).json(post)
+    } catch (err) {
+        res.status(422).json({err})
+    }
+}
+
+module.exports = { index, show, create }
