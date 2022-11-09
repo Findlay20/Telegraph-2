@@ -9,9 +9,8 @@ module.exports = class Author {
     static get all(){ 
         return new Promise (async (resolve, reject) => {
             try {
-                // console.log(db);
                 const result = await db.query('SELECT * FROM authors;')
-                const authors = result.rows.map(a => ({ id: a.id, name: a.name }))
+                const authors = result.rows.map(a => ({ id: a.id, name: a.pseudonym}))
                 resolve(authors);
             } catch (err) {
                 reject("Error retrieving authors")
@@ -22,8 +21,8 @@ module.exports = class Author {
     static findById(id){
         return new Promise (async (resolve, reject) => {
             try {
-                let authorData = await db.query('SELECT * FROM authors WHERE id = $1;', [ id ]);
-                let author = new Author(authorData.rows[0]);
+                let data = await db.query('SELECT * FROM authors WHERE id = $1;', [ id ]);
+                let author = new Author(data.rows[0]);
                 resolve(author);
             } catch (err) {
                 reject('Author not found');

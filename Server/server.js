@@ -5,7 +5,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const booksRoutes = require('./routes/posts')
+const postsRoutes = require('./routes/posts')
 const authorsRoutes = require('./routes/authors')
 server.use('/posts', postsRoutes)
 server.use('/authors', authorsRoutes)
