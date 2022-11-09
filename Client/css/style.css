@@ -22,3 +22,24 @@ textarea {
     border-radius: 30px;
     padding: 10px 20px 10px 20px;
 }
+
+#postSection {
+    text-align: center;
+}
+
+#postSection a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#postSection h2 {
+    font-size: 4vh;
+}
+
+#postSection h4 {
+    font-size: 2vh;
+}
+
+#postSection p {
+    font-size: 2vh;
+}
