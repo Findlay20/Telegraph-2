@@ -1,4 +1,4 @@
-INSERT INTO authors (pseudonym) 
+INSERT INTO authors (name) 
 VALUES
 ('Adams'),
 ('Tolstoy'),

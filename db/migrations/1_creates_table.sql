@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS posts;
 
 CREATE TABLE authors (
     id serial PRIMARY KEY,
-    pseudonym VARCHAR(50) NOT NULL
+    name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE posts (

@@ -3,14 +3,14 @@ const db = require('../dbConfig/init');
 module.exports = class Author {
     constructor(data){
         this.id = data.id;
-        this.name = data.pseudonym;
+        this.name = data.name;
     };
     
     static get all(){ 
         return new Promise (async (resolve, reject) => {
             try {
                 const result = await db.query('SELECT * FROM authors;')
-                const authors = result.rows.map(a => ({ id: a.id, name: a.pseudonym}))
+                const authors = result.rows.map(a => ({ id: a.id, name: a.name}))
                 resolve(authors);
             } catch (err) {
                 reject("Error retrieving authors")
@@ -33,7 +33,7 @@ module.exports = class Author {
     static create(name){
         return new Promise (async (resolve, reject) => {
             try {
-                let data = await db.query('INSERT INTO authors (pseudonym) VALUES ($1) RETURNING *;', [ name ]);
+                let data = await db.query('INSERT INTO authors (name) VALUES ($1) RETURNING *;', [ name ]);
                 let author = new Author(data.rows[0]);
                 resolve (author);
             } catch (err) {
@@ -46,7 +46,7 @@ module.exports = class Author {
         return new Promise (async (resolve, reject) => {
             try {
                 let author;
-                const authorData = await db.query('SELECT * FROM authors WHERE pseudonym = $1;', [ name ]);
+                const authorData = await db.query('SELECT * FROM authors WHERE name = $1;', [ name ]);
                 if(!authorData.rows.length) {
                     author = await Author.create(name);
                 } else {
