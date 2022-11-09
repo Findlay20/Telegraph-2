@@ -14,7 +14,7 @@ module.exports = class Post {
     static get all(){
         return new Promise (async (resolve, reject) => {
             try {
-                let data = await db.query('SELECT posts.*, authors.pseudonym as author_pseudonym FROM posts;');
+                let data = await db.query('SELECT posts.*, authors.pseudonym as author_pseudonym FROM posts LEFT JOIN authors ON posts.author_id = authors.id;');
                 let posts = data.rows.map(b => new Post(b));
                 resolve (posts);
             } catch (err) {
