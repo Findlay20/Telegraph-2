@@ -9,7 +9,7 @@ CREATE TABLE authors (
 CREATE TABLE posts (
     id serial PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
-    Tdate DATE NOT NULL,
+    Tdate DATE,
     descr VARCHAR(300) NOT NULL,
     author_id INT
 );

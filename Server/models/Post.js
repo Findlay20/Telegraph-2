@@ -14,7 +14,8 @@ module.exports = class Post {
     static get all(){
         return new Promise (async (resolve, reject) => {
             try {
-                let data = await db.query('SELECT posts.*, authors.name as author_name FROM posts LEFT JOIN authors ON posts.author_id = authors.id;');
+                let data = await db.query(`SELECT posts.*, authors.name as author_name 
+                    FROM posts LEFT JOIN authors ON posts.author_id = authors.id;`);
                 let posts = data.rows.map(b => new Post(b));
                 resolve (posts);
             } catch (err) {
@@ -26,7 +27,7 @@ module.exports = class Post {
     static findById(id){
         return new Promise (async (resolve, reject) => {
             try {
-                let data = await db.query(`SELECT posts.*, authors.id as author_id
+                let data = await db.query(`SELECT posts.*, authors.id as author_id, authors.name as author_name
                                                 FROM posts 
                                                 LEFT JOIN authors ON posts.author_id = authors.id
                                                 WHERE posts.id = $1;`, [ id ] );
