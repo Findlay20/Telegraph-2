@@ -7,10 +7,12 @@
     <title>Telegraph 2</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/index.js"></script>
+    <script defer src="js/layout.js"></script>
 </head>
 <body>
     <header>
-        <button id="allPosts">All Posts</button>
+        <a href="#">Home</a>
+        <a href="#posts">All Posts</a>
     </header>
     <main>
     <form action="" id="postForm">
@@ -20,7 +22,7 @@
         <input type="submit" name="submit" id="submitPost">
     </form>
     <section id="postSection" style="display: none;">
-        <button id="closePost">Back</button>
+        <a href="#">Back</a>
         <h2><a href="http://localhost:3000/posts/${post.id}"></a>Example title</h2>
         <h4>An author</h4>
         <p>A big post about a bunch of stuff asdfkaj;sdflka fas dajskdfh lkjgh oisudfghidufg hsdfkgj hl dfgskjhgd sflkjshgdf lkjsgd fidsgf dgf oifg ofi glkgfdasj;li</p>

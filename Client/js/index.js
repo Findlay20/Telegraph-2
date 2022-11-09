@@ -7,8 +7,6 @@ const closePostBtn = document.querySelector('#closePost');
 const allPostsBtn = document.querySelector('#allPosts');
 
 form.addEventListener("submit", sendPost);
-closePostBtn.addEventListener("click", closePost)
-allPostsBtn.addEventListener("click", () => window.location.hash = `#posts`)
 
 async function sendPost (e) {
     e.preventDefault();
@@ -54,10 +52,10 @@ async function displayPost (id) {
     }
 }
 
-function closePost () {
-    form.style.display = 'flex';
-    postSection.style.display = 'none'
-}
+// function closePost () {
+//     form.style.display = 'flex';
+//     postSection.style.display = 'none'
+// }
 
 
 async function displayPosts () {
@@ -84,6 +82,4 @@ async function getPosts () {
     } catch (err){
         console.warn(err);
     }
-
-
 }
