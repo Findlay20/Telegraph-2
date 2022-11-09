@@ -1,11 +1,11 @@
-INSERT INTO people (pseudonym) 
+INSERT INTO authors (pseudonym) 
 VALUES
 ('Adams'),
 ('Tolstoy'),
 ('Sakura'),
 ('Utachi');
 
-INSERT INTO posts (people_id, title, Tdate, descr) 
+INSERT INTO posts (author_id, title, Tdate, descr) 
 VALUES
 (1, "title here...", "July 21, 1983", 'description here...'),
 (1, "title here...", "July 21, 2000", 'description here...'),
