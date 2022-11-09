@@ -25,7 +25,7 @@ form {
 }
 
 input {
-    border: 1px solid rgba(71, 71, 71, 0.2);
+    border: 1px solid rgba(71, 71, 71, 0.8);
     border-radius: 30px;
     padding: 10px 20px 10px 20px;
     height: 6vh;
@@ -34,32 +34,37 @@ input {
 
 textarea {
     resize: none;
-    border: 1px solid rgba(71, 71, 71, 0.2);
+    border: 1px solid rgba(71, 71, 71, 0.8);
     border-radius: 30px;
     padding: 10px 20px 10px 20px;
     height: 18vh;
 }
 
 
-#postSection {
+div {
     text-align: center;
     background-color: rgba(71, 71, 71, 0.2);
     padding: 80px;
+    border: 3px solid black;
+    border-radius: 7vw;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    margin-right: 16vw;
 }
 
-#postSection a{
-    text-decoration: none;
+div a{
+    text-decoration: underline;
     color: inherit;
 }
 
-#postSection h2 {
+div h2 {
     font-size: 4vh;
 }
 
-#postSection h4 {
+div h4 {
     font-size: 2vh;
 }
 
-#postSection p {
+div p {
     font-size: 2vh;
 }
