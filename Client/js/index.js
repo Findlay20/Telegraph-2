@@ -17,7 +17,8 @@ async function sendPost (e) {
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
         const response = await fetch('http://localhost:3000/posts', options);
-        const {id, err} = await response.json;
+        const {id, err} = await response.json();
+
         if (err) {
             throw Error(err)
         } else {
