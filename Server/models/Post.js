@@ -31,8 +31,7 @@ module.exports = class Post {
                                                 LEFT JOIN authors ON posts.author_id = authors.id
                                                 WHERE posts.id = $1;`, [ id ] );
                 let post = new Post(data.rows[0]);
-                console.log(data.rows[0])
-                console.log(post)
+
                 resolve (post);
             } catch (err) {
                 reject(`Post not found: ${err}`);
@@ -47,11 +46,12 @@ module.exports = class Post {
 
                 // finds or creates author with data inserted into author
                 let author = await Author.findOrCreateByName(authorName);
-                console.log(author)
-                
+            
+               
                 let postData = await db.query(`INSERT INTO posts 
                 VALUES ($1, $2, $3, $4)  RETURNING *;`, [title, GETDATE(), descr, author.id] );
 
+                console.log(postdata.rows[0])
                 let post = new Post(postData.rows[0]);
 
                 resolve(post);
