@@ -23,7 +23,6 @@ module.exports = class Post {
         });
     };
 
-    // bug: type a no/id does not display
     static findById(id){
         return new Promise (async (resolve, reject) => {
             try {
