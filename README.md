@@ -17,7 +17,7 @@
 
 ## Bugs
 ### Client
-
+- Submit button doesn't always work - only every 2nd time
 
 ### Server
 - Cannot get date to display when localhost/posts
