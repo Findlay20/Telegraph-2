@@ -1,10 +1,4 @@
 const form = document.querySelector('#postForm');
-const postSection = document.querySelector('#postSection');
-const postTitle = document.querySelector('#postSection h2');
-const postAuthor = document.querySelector('#postSection h4');
-const postBody = document.querySelector('#postSection p');
-const closePostBtn = document.querySelector('#closePost');
-const allPostsBtn = document.querySelector('#allPosts');
 
 form.addEventListener("submit", sendPost);
 
