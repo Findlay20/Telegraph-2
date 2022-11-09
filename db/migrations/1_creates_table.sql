@@ -8,8 +8,8 @@ CREATE TABLE authors (
 
 CREATE TABLE posts (
     id serial PRIMARY KEY,
-    author_id INT,
     title VARCHAR(50) NOT NULL,
-    Tdate date NOT NULL,
-    descr VARCHAR(300) NOT NULL
+    Tdate DATE NOT NULL,
+    descr VARCHAR(300) NOT NULL,
+    author_id INT
 );

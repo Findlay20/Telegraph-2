@@ -5,11 +5,10 @@ VALUES
 ('Sakura'),
 ('Utachi');
 
-INSERT INTO posts (author_id, title, Tdate, descr) 
+INSERT INTO posts (title, Tdate, descr, author_id) 
 VALUES
-(1, 'title here...', 'July 21, 1983', 'description here...'),
-(1, 'title here...', 'July 21, 2000', 'description here...'),
-(1, 'title here...', 'July 21, 2001', 'description here...'),
-(2, 'title here...', 'July 21, 2003', 'description here...'),
-(3, 'title here...', 'July 21, 2006', 'description here...'),
-(4, 'title here...', 'July 21, 2010', 'description here...');
+('title here...', TO_DATE('&dob','1983-07-21'), 'description here...', 1),
+('title here...', TO_DATE('&dob','2000-10-11'), 'description here...', 1),
+('title here...', TO_DATE('&dob','2003-05-14'), 'description here...', 2),
+('title here...', TO_DATE('&dob','2006-09-20'), 'description here...', 3),
+('title here...', TO_DATE('&dob','2010-12-03'), 'description here...', 4);

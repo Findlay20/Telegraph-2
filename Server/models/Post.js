@@ -1,14 +1,14 @@
 const db = require('../dbConfig/init');
 
-// const Author = require('./Author');
+const Author = require('./Author');
 
 module.exports = class Post {
     constructor(data, author){
         this.id = data.id;
-        this.author = { pseudonym: data.author_pseudonym, path: `/authors/${data.author_id}`};
         this.title = data.title;
         this.Tdate = data.Tdate;
         this.descr = data.descr;
+        this.author = { name: data.author_pseudonym, path: `/authors/${data.author_id}`};
     };
 
     static get all(){
@@ -23,6 +23,7 @@ module.exports = class Post {
         });
     };
 
+    // bug: type a no/id does not display
     static findById(id){
         return new Promise (async (resolve, reject) => {
             try {
@@ -41,11 +42,14 @@ module.exports = class Post {
     static async create(data){
         return new Promise (async (resolve, reject) => {
             try {
-                const { authorName, title, yearOfPublication, abstract} = data;
+                const { authorName, title, descr} = data;
 
                 // finds or creates author with data inserted into author
                 let author = await Author.findOrCreateByName(authorName);
                 console.log(author)
+
+                // get todays date
+                // insert into run(id,name,dob) values(&id,'&name',GETDATE());
                 
                 // ??
                 let newPost = await db.query(`INSERT INTO books 
