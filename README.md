@@ -8,6 +8,10 @@
 - Type `bash _scripts/teardown.sh` to stop & remove volume
 
 ## Changelog
+- Added basic form and styling to client page
+- get posts and send post functions set up
+- Added All Posts view on page
+
 
 ## Bugs
 ### Client

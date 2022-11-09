@@ -60,14 +60,17 @@ async function displayPost (id) {
 
 async function displayPosts () {
     try {
-        const allPosts = getPosts();
+        const allPosts = await getPosts();
+        console.log(allPosts)
         allPosts.forEach(post => {
+            console.log(post.id)
             markup = `<div id="post_${post.id}">
                         <h2><a href="http://localhost:3000/posts/${post.id}">${post.title}</a></h2>
                         <h4>${post.author}</h4>
-                        <p>${post.body}</p>
+                        <p>${post.descr}</p>
                       </div>`
-            postSection.insertAdjacentHTML('afterbegin', markup)       
+            main.insertAdjacentHTML('afterbegin', markup);
+            
         })
     } catch (err) {
         console.warn(err)
