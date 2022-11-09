@@ -6,6 +6,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 20px;
+}
+
+#title {
+    font-size: 50px;
 }
 
 body header a{
@@ -13,6 +18,11 @@ body header a{
     text-decoration: underline;
     font-size: 3vh;
     color: inherit;
+    /* border: 2px blueviolet solid; */
+}
+
+body header a:hover {
+    color: rgb(204, 149, 48);
 }
 
 form {
@@ -40,6 +50,9 @@ textarea {
     height: 18vh;
 }
 
+#submitPost:hover {
+    color: rgb(204, 149, 48);
+}
 
 div {
     text-align: center;
