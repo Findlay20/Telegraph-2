@@ -11,7 +11,8 @@
 - Added basic form and styling to client page
 - get posts and send post functions set up
 - Added All Posts view on page
-
+- Added individual view for posts
+- Updated styling
 
 
 ## Bugs
