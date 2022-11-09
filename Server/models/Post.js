@@ -48,7 +48,7 @@ module.exports = class Post {
                 console.log(author)
                 
                 let postData = await db.query(`INSERT INTO posts 
-                VALUES ($1, $2, $3, $4)  RETURNING *;`, [title, GETDATE(), descr, authorName] );
+                VALUES ($1, $2, $3, $4)  RETURNING *;`, [title, GETDATE(), descr, author.id] );
 
                 let post = new Post(postData.rows[0]);
 

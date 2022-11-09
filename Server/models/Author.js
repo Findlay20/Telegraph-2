@@ -46,7 +46,7 @@ module.exports = class Author {
         return new Promise (async (resolve, reject) => {
             try {
                 let author;
-                const authorData = await db.query('SELECT * FROM authors WHERE name = $1;', [ name ]);
+                const authorData = await db.query('SELECT * FROM authors WHERE pseudonym = $1;', [ name ]);
                 if(!authorData.rows.length) {
                     author = await Author.create(name);
                 } else {

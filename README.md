@@ -20,4 +20,3 @@
 
 ### Server
 - Cannot get date to display when localhost/posts
-- Cannot get one post when localhost/posts/id
