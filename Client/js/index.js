@@ -43,7 +43,7 @@ async function displayPost (id) {
         const post = await getPostByID(id);
         markup = `<div id="post_${post.id}">
                     <h2><a href="#posts/${post.id}">${post.title}</a></h2>
-                    <h4>${post.author.name}</h4>
+                    <h4>${post.author.pseudonym}</h4>
                     <p>${post.descr}</p>
                     </div>`
         main.insertAdjacentHTML('afterbegin', markup);
@@ -58,7 +58,7 @@ async function displayPosts () {
         allPosts.forEach(post => {
             markup = `<div id="post_${post.id}">
                         <h2><a href="#posts/${post.id}">${post.title}</a></h2>
-                        <h4>${post.author.name}</h4>
+                        <h4>${post.author.pseudonym}</h4>
                         <p>${post.descr}</p>
                       </div>`
             main.insertAdjacentHTML('afterbegin', markup);
