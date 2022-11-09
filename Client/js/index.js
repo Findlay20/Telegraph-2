@@ -4,12 +4,14 @@ const postTitle = document.querySelector('#postSection h2');
 const postAuthor = document.querySelector('#postSection h4');
 const postBody = document.querySelector('#postSection p');
 const closePostBtn = document.querySelector('#closePost');
+const allPostsBtn = document.querySelector('#allPosts');
 
-form.addEventListener('submit', sendPost);
-closePostBtn.addEventListener('click', closePost)
+form.addEventListener("submit", sendPost);
+closePostBtn.addEventListener("click", closePost)
+allPostsBtn.addEventListener("click", () => window.location.hash = `#posts`)
 
 async function sendPost (e) {
-    e.preventdefault()
+    e.preventDefault();
     try {
         const options = {
             method: 'POST',
@@ -22,13 +24,12 @@ async function sendPost (e) {
         if (err) {
             throw Error(err)
         } else {
-            showPost(id);
+            window.location.hash = `#posts/${id}`
         }
     } catch (err) {
         console.warn(err);  
     }
 }
-
 
 async function getPostByID (id) {
     try {
@@ -40,7 +41,7 @@ async function getPostByID (id) {
     }
 }
 
-async function showPost (id) {
+async function displayPost (id) {
     try {
         const post = getPostByID(id);
         form.style.display = 'none';
@@ -59,30 +60,30 @@ function closePost () {
 }
 
 
-// async function displayPosts () {
-//     try {
-//         const allPosts = getPosts();
-//         allPosts.forEach(post => {
-//             markup = `<div id="post_${post.id}">
-//                         <h2><a href="http://localhost:3000/posts/${post.id}">${post.title}</a></h2>
-//                         <h4>${post.author}</h4>
-//                         <p>${post.body}</p>
-//                       </div>`
-//             postSection.insertAdjacentHTML('afterbegin', markup)       
-//         })
-//     } catch (err) {
-//         console.warn(err)
-//     }
-// }
+async function displayPosts () {
+    try {
+        const allPosts = getPosts();
+        allPosts.forEach(post => {
+            markup = `<div id="post_${post.id}">
+                        <h2><a href="http://localhost:3000/posts/${post.id}">${post.title}</a></h2>
+                        <h4>${post.author}</h4>
+                        <p>${post.body}</p>
+                      </div>`
+            postSection.insertAdjacentHTML('afterbegin', markup)       
+        })
+    } catch (err) {
+        console.warn(err)
+    }
+}
 
-// async function getPosts () {
-//     try {
-//         const response = await fetch('http://localhost:3000/posts');
-//         const data = await response.json();
-//         return data;
-//     } catch (err){
-//         console.warn(err);
-//     }
+async function getPosts () {
+    try {
+        const response = await fetch('http://localhost:3000/posts');
+        const data = await response.json();
+        return data;
+    } catch (err){
+        console.warn(err);
+    }
 
 
-// }
+}
