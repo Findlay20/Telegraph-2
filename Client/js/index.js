@@ -16,9 +16,10 @@ async function sendPost (e) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-
+        console.log(options.body)
         const response = await fetch('http://localhost:3000/posts', options);
         const {id, err} = await response.json;
+        console.log(response)
         if (err) {
             throw Error(err)
         } else {
@@ -52,12 +53,6 @@ async function displayPost (id) {
     }
 }
 
-// function closePost () {
-//     form.style.display = 'flex';
-//     postSection.style.display = 'none'
-// }
-
-
 async function displayPosts () {
     try {
         const allPosts = await getPosts();
@@ -65,7 +60,7 @@ async function displayPosts () {
         allPosts.forEach(post => {
             console.log(post.id)
             markup = `<div id="post_${post.id}">
-                        <h2><a href="http://localhost:3000/posts/${post.id}">${post.title}</a></h2>
+                        <h2><a href="#posts/${post.id}">${post.title}</a></h2>
                         <h4>${post.author}</h4>
                         <p>${post.descr}</p>
                       </div>`
