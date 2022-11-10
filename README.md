@@ -20,7 +20,7 @@ Goto http://localhost:8080 to see website.
 ## Bugs
 ### Client
 - Submit button doesn't always work - only every 2nd time
-- direct links to post only work after visiting page first
+- direct links to post only work after visiting page first      - only changes on hash change, tried using onload listeners to no avail
 - address bar fills up with inputted information and never clears
 
 ### Server
