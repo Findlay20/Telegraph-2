@@ -23,8 +23,8 @@ function updateMain(hash) {
     } else {
         markup = `<form id="postForm">
                     <input type="text" name="title" id="titleInput" placeholder="Title...">
-                    <input type="text" name="author" id="authorInput" placeholder="Your name...">
-                    <textarea name="post" id="postInput" cols="140" rows="10"></textarea>
+                    <input type="text" name="authorName" id="authorInput" placeholder="Your name...">
+                    <textarea name="descr" id="postInput" cols="140" rows="10"></textarea>
                     <input type="submit" name="submit" id="submitPost">
                 </form>`
         main.insertAdjacentHTML('afterbegin', markup)
