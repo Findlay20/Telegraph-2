@@ -1,5 +1,14 @@
 window.addEventListener('hashchange', updateContent);
 const main = document.querySelector('main');
+const navLinks = document.querySelectorAll('.navlink');
+
+function updateNav(hash) {
+    const updateLink = link => {
+        if(hash.includes('#')) link.classList = '#';
+        else if(hash.includes(link.textContent)) link.classList = 'navlink';
+    };
+    navLinks.forEach(updateLink)
+}
 
 function updateContent(){
     let hash = window.location.hash.substring(1);
@@ -9,7 +18,7 @@ function updateContent(){
 function updateMain(hash) {
     main.innerHTML = '';
     if (hash) {
-        let [category, id] = hash.split('/');
+        let id = hash.split('/');
         id ? displayPost(id) : displayPosts();
     } else {
         markup = `<form id="postForm">

@@ -16,12 +16,10 @@ Goto http://localhost:8080 to see website.
 - Added individual view for posts
 - Updated styling
 
-
 ## Bugs
 ### Client
-- Submit button doesn't always work - only every 2nd time
+- Submit button doesn't always work - only 1st time
 - direct links to post only work after visiting page first
-- address bar fills up with inputted information and never clears
 
 ### Server
 - Cannot get date to display when localhost:3000/posts
