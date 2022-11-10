@@ -1,24 +1,95 @@
+:root {
+    text-align: center;
+}
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin: 20px;
+}
+
+#title {
+    font-size: 50px;
+}
+
+body header a {
+    margin: 10vw;
+    text-decoration: underline;
+    font-size: 3vh;
+    color: inherit;
+}
+
+body header a:hover {
+    color: rgb(55, 110, 141);
+    text-decoration: none;
 }
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80vw;
+    margin-top: 3vh;
+    margin-left: 18vw;
+    margin-right: 18vw;
 }
 
-input {
-    border: 1px solid rgba(71, 71, 71, 0.2);
-    border-radius: 30px;
+input, #postInput, #submitPost {
+    border-radius: 12px;
+    border: 1px solid rgba(71, 71, 71, 0.8);
+}
+
+#titleInput, #authorInput {
     padding: 10px 20px 10px 20px;
+    height: 6vh;
+    font-size: 3.6vh;
 }
 
-textarea {
+#postInput {
     resize: none;
-    border: 1px solid rgba(71, 71, 71, 0.2);
-    border-radius: 30px;
     padding: 10px 20px 10px 20px;
+    height: 18vh;
+    font-size: 2.6vh;
+}
+
+#submitPost {
+    display: flex;
+    align-self: flex-end;
+    padding: 10px 20px;
+    height: 6vh;
+    width: fit-content;
+    font-size: 3.6vh;
+}
+
+#submitPost:hover {
+    color: rgb(55, 110, 141);
+}
+
+div {
+    text-align: center;
+    /* background-color: rgba(71, 71, 71, 0.2); */
+    background-color: rgba(228, 252, 255, 0.932);
+    border: 1px solid rgba(71, 71, 71, 0.8);
+    border-radius: 5vw;
+    padding: 80px;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    margin-right: 16vw;
+}
+
+div a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+div h2 {
+    font-size: 4vh;
+}
+
+div h4 {
+    font-size: 2vh;
+}
+
+div p {
+    font-size: 2vh;
 }
