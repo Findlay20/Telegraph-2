@@ -7,7 +7,7 @@
 - Type `bash _scripts/stop.sh` to stop
 - Type `bash _scripts/teardown.sh` to stop & remove volume
 
-Goto http://localhost:8080 to see website. 
+Goto http://localhost:8080/# to see website. 
 
 ## Changelog
 - Added basic form and styling to client page

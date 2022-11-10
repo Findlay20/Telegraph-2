@@ -68,7 +68,7 @@ input, #postInput, #submitPost {
 div {
     text-align: center;
     /* background-color: rgba(71, 71, 71, 0.2); */
-    background-color: rgb(189, 240, 247);
+    background-color: rgba(228, 252, 255, 0.932);
     border: 1px solid rgba(71, 71, 71, 0.8);
     border-radius: 5vw;
     padding: 80px;
